@@ -8,7 +8,8 @@ import java.util.HashSet;
 public class CsvParser extends FileParser {
 
     @Override
-    public HashSet<Person> parse(File file) {
+    public HashSet<? extends Person> parse(File file) {
+        //write method code here
         return null;
     }
 }

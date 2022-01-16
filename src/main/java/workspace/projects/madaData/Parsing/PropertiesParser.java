@@ -22,5 +22,6 @@ public class PropertiesParser {
         }
     }
 
+    //write getter method for each property
 
 }

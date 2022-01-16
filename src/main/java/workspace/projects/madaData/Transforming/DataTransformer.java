@@ -14,5 +14,5 @@ public abstract class DataTransformer {
      * @return Returns a transformed array of Person instances
      */
     public abstract HashSet<Person> transform(HashSet<Person> people);
-    
+
 }
