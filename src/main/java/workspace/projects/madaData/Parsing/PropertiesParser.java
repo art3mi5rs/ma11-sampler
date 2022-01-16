@@ -7,11 +7,11 @@ import java.util.Properties;
 public class PropertiesParser {
     Properties props;
 
-    public PropertiesParser(){
+    public PropertiesParser() {
         init();
     }
 
-    public void init(){
+    public void init() {
         try {
             InputStream stream = getClass().getResourceAsStream("database_props.properties");
             props = new Properties();

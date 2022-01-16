@@ -1,4 +1,4 @@
 package workspace.projects.madaData.People;
 
-public class Person {
+public abstract class Person {
 }
