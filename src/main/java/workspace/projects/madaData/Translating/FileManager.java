@@ -26,8 +26,8 @@ public class FileManager {
      * @throws IOException
      */
     protected void closeFile(FileWriter writer) throws IOException {
-        writer.append("\n]");
-        writer.close();
+        writer.append("]");
+        writer.flush();
     }
 
     /**
