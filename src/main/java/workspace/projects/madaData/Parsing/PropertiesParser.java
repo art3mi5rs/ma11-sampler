@@ -13,7 +13,7 @@ public class PropertiesParser {
 
     public void init() {
         try {
-            InputStream stream = getClass().getResourceAsStream("database_props.properties");
+            InputStream stream = getClass().getResourceAsStream("src/main/resources/config.properties");
             props = new Properties();
             props.load(stream);
             stream.close();
@@ -22,6 +22,6 @@ public class PropertiesParser {
         }
     }
 
-    //write getter method for each property
+    //DEBUG: write getter method for each property
 
 }

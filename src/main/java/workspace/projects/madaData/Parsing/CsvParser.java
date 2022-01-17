@@ -16,7 +16,7 @@ public class CsvParser extends FileParser implements TestedPersonParsing {
 
     @Override
     public HashSet<? extends Person> parse(File file) throws IOException {
-        Reader in = new FileReader("path/to/file.csv");
+        Reader in = new FileReader(file.getPath());
         Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(in);
 
         HashSet<? extends Person> people = parseTestedPerson(records);
@@ -44,7 +44,8 @@ public class CsvParser extends FileParser implements TestedPersonParsing {
                 Date takeDate = Date.valueOf(record.get(10));
                 Date resultDate = Date.valueOf(record.get(11));
 
-                people.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber, barcode, getDate, takeDate, resultDate));
+                people.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber,
+                        barcode, getDate, takeDate, resultDate));
             } else {
                 firstIteration = false;
             }

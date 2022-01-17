@@ -1,8 +1,14 @@
 package workspace.projects.madaData;
 
 import workspace.projects.madaData.Parsing.FileParser;
+import workspace.projects.madaData.People.Person;
 import workspace.projects.madaData.Transforming.DataTransformer;
 import workspace.projects.madaData.Translating.DataTranslator;
+import workspace.projects.madaData.Translating.FileNotDeletedException;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.HashSet;
 
 public class MadaData {
     FileParser parser;
@@ -21,7 +27,10 @@ public class MadaData {
         this.translator = translator;
     }
 
-    public void runProgram() {
-        //write method code here
+    //DEBUG: does not follow OCP
+    public void runProgram() throws IOException, FileNotDeletedException {
+        //DEBUG: take pathname from properties
+        HashSet<? extends Person> people = parser.parse(new File("src/main/resources/MadaReports.csv"));
+        translator.translate(people);
     }
 }
