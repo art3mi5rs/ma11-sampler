@@ -35,7 +35,6 @@ public class MadaData {
      * @throws FileNotDeletedException
      */
     public void runProgram() throws IOException, FileNotDeletedException {
-        //DEBUG: does not follow OCP
         PropertiesParser config = new PropertiesParser();
         LinkedHashSet<? extends Person> people = parser.parse(new File(config.getDataPath()));
         translator.translate(people);

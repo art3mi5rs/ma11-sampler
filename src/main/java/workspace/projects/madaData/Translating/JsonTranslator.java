@@ -18,24 +18,19 @@ public class JsonTranslator extends DataTranslator {
     @Override
     public void translate(LinkedHashSet<? extends Person> people) throws IOException, FileNotDeletedException {
         ObjectMapper objectMapper = new ObjectMapper();
-        boolean isFirstLine = true;
         int recordCount = 0;
         int fileCount = 0;
         FileWriter writer = manager.openFile(fileBase + fileCount + type);
 
         for (Person person : people) {
-            if (isFirstLine) {
-                isFirstLine = false;
-            } else {
-                if (recordCount % maxRecords == 0 && recordCount != 0) {
-                    manager.closeFile(writer);
-                    fileCount++;
-                    writer = manager.openFile(fileBase + fileCount + type);
-                }
-                writer.append(objectMapper.writeValueAsString(person));
-                writer.append(", \n");
-                recordCount++;
+            if (recordCount % maxRecords == 0 && recordCount != 0) {
+                manager.closeFile(writer);
+                fileCount++;
+                writer = manager.openFile(fileBase + fileCount + type);
             }
+            writer.append(objectMapper.writeValueAsString(person));
+            writer.append(", \n");
+            recordCount++;
         }
 
         if (recordCount % (maxRecords + 1) != 0) {
