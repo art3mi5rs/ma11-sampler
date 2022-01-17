@@ -2,7 +2,7 @@ package workspace.projects.madaData.Transforming;
 
 import workspace.projects.madaData.People.Person;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public abstract class DataTransformer {
 
@@ -13,6 +13,6 @@ public abstract class DataTransformer {
      * @param people An array of Person instances
      * @return Returns a transformed array of Person instances
      */
-    public abstract HashSet<Person> transform(HashSet<Person> people);
+    public abstract LinkedHashSet<Person> transform(LinkedHashSet<Person> people);
 
 }

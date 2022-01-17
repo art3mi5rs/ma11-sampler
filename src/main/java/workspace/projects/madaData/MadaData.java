@@ -9,7 +9,7 @@ import workspace.projects.madaData.Translating.FileNotDeletedException;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class MadaData {
     FileParser parser;
@@ -37,7 +37,7 @@ public class MadaData {
     public void runProgram() throws IOException, FileNotDeletedException {
         //DEBUG: does not follow OCP
         PropertiesParser config = new PropertiesParser();
-        HashSet<? extends Person> people = parser.parse(new File(config.getDataPath()));
+        LinkedHashSet<? extends Person> people = parser.parse(new File(config.getDataPath()));
         translator.translate(people);
     }
 }

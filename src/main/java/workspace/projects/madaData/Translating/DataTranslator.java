@@ -3,7 +3,7 @@ package workspace.projects.madaData.Translating;
 import workspace.projects.madaData.People.Person;
 
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public abstract class DataTranslator {
     String fileBase;
@@ -19,10 +19,10 @@ public abstract class DataTranslator {
 
 
     /**
-     * Moves the data from the HashSet to File(s)
+     * Moves the data from the LinkedHashSet to File(s)
      *
-     * @param people The HashSet of Person instances
+     * @param people The LinkedHashSet of Person instances
      */
-    public abstract void translate(HashSet<? extends Person> people) throws IOException, FileNotDeletedException;
+    public abstract void translate(LinkedHashSet<? extends Person> people) throws IOException, FileNotDeletedException;
 
 }

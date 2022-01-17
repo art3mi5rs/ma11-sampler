@@ -9,23 +9,23 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class CsvParser extends FileParser implements TestedPersonParsing {
 
     @Override
-    public HashSet<? extends Person> parse(File file) throws IOException {
+    public LinkedHashSet<? extends Person> parse(File file) throws IOException {
         Reader in = new FileReader(file.getPath());
         Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(in);
 
-        HashSet<? extends Person> people = parseTestedPerson(records);
+        LinkedHashSet<? extends Person> people = parseTestedPerson(records);
 
         return people;
     }
 
     @Override
-    public HashSet<TestedPerson> parseTestedPerson(Iterable<CSVRecord> records) {
-        HashSet<TestedPerson> people = new HashSet<>();
+    public LinkedHashSet<TestedPerson> parseTestedPerson(Iterable<CSVRecord> records) {
+        LinkedHashSet<TestedPerson> people = new LinkedHashSet<>();
         boolean firstIteration = true;
 
         for (CSVRecord record : records) {

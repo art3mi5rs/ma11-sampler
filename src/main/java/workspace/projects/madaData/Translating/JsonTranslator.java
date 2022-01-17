@@ -5,7 +5,7 @@ import workspace.projects.madaData.People.Person;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 
 public class JsonTranslator extends DataTranslator {
     String type;
@@ -16,7 +16,7 @@ public class JsonTranslator extends DataTranslator {
     }
 
     @Override
-    public void translate(HashSet<? extends Person> people) throws IOException, FileNotDeletedException {
+    public void translate(LinkedHashSet<? extends Person> people) throws IOException, FileNotDeletedException {
         ObjectMapper objectMapper = new ObjectMapper();
         boolean isFirstLine = true;
         int recordCount = 0;
