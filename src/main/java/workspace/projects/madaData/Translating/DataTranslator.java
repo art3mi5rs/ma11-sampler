@@ -7,9 +7,14 @@ import java.util.HashSet;
 
 public abstract class DataTranslator {
     String fileBase;
+    FileManager manager;
+    int maxRecords;
 
-    public DataTranslator(String fileBase){
+
+    public DataTranslator(String fileBase, FileManager manager, int maxRecords) {
         this.fileBase = fileBase;
+        this.manager = manager;
+        this.maxRecords = maxRecords;
     }
 
 
