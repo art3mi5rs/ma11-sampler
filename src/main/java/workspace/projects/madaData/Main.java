@@ -1,6 +1,7 @@
 package workspace.projects.madaData;
 
 import workspace.projects.madaData.Parsing.CsvParser;
+import workspace.projects.madaData.Parsing.PropertiesParser;
 import workspace.projects.madaData.Translating.FileNotDeletedException;
 import workspace.projects.madaData.Translating.JsonTranslator;
 
@@ -9,12 +10,12 @@ import java.io.IOException;
 
 public class Main {
     public static void main(String args[]) {
-        CsvParser parser = new CsvParser();
-        JsonTranslator translator = new JsonTranslator("/Users/shachaf/MadaData/TestedPeopleData",
-                50000); //DEBUG: Take from properties file
-        MadaData data = new MadaData(parser, translator);
-
         try {
+            CsvParser parser = new CsvParser();
+            PropertiesParser config = new PropertiesParser();
+            JsonTranslator translator = new JsonTranslator(config.getTestedFileBase(), config.getMaxRecords());
+            MadaData data = new MadaData(parser, translator);
+
             data.runProgram();
         } catch (FileNotDeletedException e) {
             e.printStackTrace();

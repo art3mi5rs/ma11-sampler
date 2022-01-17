@@ -9,7 +9,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.sql.Date;
 import java.util.HashSet;
 
 public class CsvParser extends FileParser implements TestedPersonParsing {
@@ -40,9 +39,9 @@ public class CsvParser extends FileParser implements TestedPersonParsing {
                 String street = record.get(6);
                 int buildingNumber = Integer.parseInt(record.get(7));
                 String barcode = record.get(8);
-                Date getDate = Date.valueOf(record.get(9));
-                Date takeDate = Date.valueOf(record.get(10));
-                Date resultDate = Date.valueOf(record.get(11));
+                String getDate = record.get(9);
+                String takeDate = record.get(10);
+                String resultDate = record.get(11);
 
                 people.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber,
                         barcode, getDate, takeDate, resultDate));

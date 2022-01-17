@@ -32,7 +32,8 @@ public class JsonTranslator extends DataTranslator {
                     fileCount++;
                     writer = manager.openFile(fileBase + fileCount + type);
                 }
-                objectMapper.writeValue(writer, person); //does this append or write
+                objectMapper.writeValue(writer, person); //DEBUG: does this append or write
+                writer.append(", \n");
                 recordCount++;
             }
         }

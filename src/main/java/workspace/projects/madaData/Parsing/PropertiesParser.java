@@ -1,27 +1,34 @@
 package workspace.projects.madaData.Parsing;
 
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesParser {
     Properties props;
 
-    public PropertiesParser() {
+    public PropertiesParser() throws IOException {
         init();
     }
 
-    public void init() {
-        try {
-            InputStream stream = getClass().getResourceAsStream("src/main/resources/config.properties");
-            props = new Properties();
-            props.load(stream);
-            stream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void init() throws IOException {
+        FileReader reader = new FileReader("src/main/resources/config.properties");
+        props = new Properties();
+        props.load(reader);
+        reader.close();
+
     }
 
-    //DEBUG: write getter method for each property
+    public String getDataPath(){
+        return props.getProperty("dataPath");
+    }
+
+    public String getTestedFileBase(){
+        return props.getProperty("testedFileBase");
+    }
+
+    public int getMaxRecords(){
+        return Integer.parseInt(props.getProperty("maxRecords"));
+    }
 
 }

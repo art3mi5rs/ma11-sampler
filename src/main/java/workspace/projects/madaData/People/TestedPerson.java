@@ -1,7 +1,5 @@
 package workspace.projects.madaData.People;
 
-import java.util.Date;
-
 public class TestedPerson extends Person {
     private String mdaCode;
     private int idNum;
@@ -12,14 +10,14 @@ public class TestedPerson extends Person {
     private String street;
     private int buildingNumber;
     private String barcode;
-    private Date getDate;
-    private Date takeDate;
-    private Date resultDate;
+    private String getDate;
+    private String takeDate;
+    private String resultDate;
 
 
     public TestedPerson(String mdaCode, int idNum, int idType, String firstName, String lastName, String city,
-                        String street, int buildingNumber, String barcode, Date getDate, Date takeDate,
-                        Date resultDate) {
+                        String street, int buildingNumber, String barcode, String getDate, String takeDate,
+                        String resultDate) {
         this.mdaCode = mdaCode;
         this.idNum = idNum;
         this.idType = idType;
@@ -71,15 +69,15 @@ public class TestedPerson extends Person {
         return barcode;
     }
 
-    public Date getGetDate() {
+    public String getGetDate() {
         return getDate;
     }
 
-    public Date getTakeDate() {
+    public String getTakeDate() {
         return takeDate;
     }
 
-    public Date getResultDate() {
+    public String getResultDate() {
         return resultDate;
     }
 }
