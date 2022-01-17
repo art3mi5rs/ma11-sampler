@@ -17,9 +17,7 @@ public class TestedPerson extends Person {
     private Date resultDate;
 
 
-    public TestedPerson(String mdaCode, int idNum, int idType, String firstName, String lastName,
-                        String city, String street, int buildingNumber, String barcode, Date getDate,
-                        Date takeDate, Date resultDate) {
+    public TestedPerson(String mdaCode, int idNum, int idType, String firstName, String lastName, String city, String street, int buildingNumber, String barcode, Date getDate, Date takeDate, Date resultDate) {
         this.mdaCode = mdaCode;
         this.idNum = idNum;
         this.idType = idType;
