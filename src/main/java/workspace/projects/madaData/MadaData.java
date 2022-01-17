@@ -1,17 +1,13 @@
 package workspace.projects.madaData;
 
 import workspace.projects.madaData.Parsing.FileParser;
-import workspace.projects.madaData.Parsing.PropertiesParser;
-import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Transforming.DataTransformer;
 import workspace.projects.madaData.Translating.DataTranslator;
 import workspace.projects.madaData.Translating.FileNotDeletedException;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashSet;
 
-public class MadaData {
+public abstract class MadaData {
     FileParser parser;
     DataTransformer transformer;
     DataTranslator translator;
@@ -34,9 +30,5 @@ public class MadaData {
      * @throws IOException
      * @throws FileNotDeletedException
      */
-    public void runProgram() throws IOException, FileNotDeletedException {
-        PropertiesParser config = new PropertiesParser();
-        LinkedHashSet<? extends Entity> entities = parser.parse(new File(config.getDataPath()));
-        translator.translate(entities);
-    }
+    public abstract void runProgram() throws IOException, FileNotDeletedException ;
 }

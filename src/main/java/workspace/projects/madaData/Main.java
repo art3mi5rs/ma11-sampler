@@ -14,7 +14,7 @@ public class Main {
             CsvParser parser = new CsvParser();
             PropertiesParser config = new PropertiesParser();
             JsonTranslator translator = new JsonTranslator(config.getTestedFileBase(), config.getMaxRecords());
-            MadaData data = new MadaData(parser, translator);
+            MadaData data = new TestedPersonData(parser, translator);
 
             data.runProgram();
         } catch (FileNotDeletedException e) {
