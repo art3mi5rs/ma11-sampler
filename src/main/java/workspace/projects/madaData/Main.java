@@ -19,7 +19,7 @@ public class Main {
             data.runProgram();
         } catch (FileNotDeletedException e) {
             e.printStackTrace();
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

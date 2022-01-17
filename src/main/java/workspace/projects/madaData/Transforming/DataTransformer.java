@@ -8,7 +8,7 @@ public abstract class DataTransformer {
 
     /**
      * Transforms the data to fit the requirements
-     * note: additional subclasses of Person might need to be created to match data
+     * note: additional subclasses of Person may need to be created to match data
      *
      * @param people An array of Person instances
      * @return Returns a transformed array of Person instances

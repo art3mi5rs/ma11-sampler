@@ -19,15 +19,30 @@ public class PropertiesParser {
 
     }
 
-    public String getDataPath(){
+    /**
+     * Gets the dataPath variable from the properties file
+     *
+     * @return returns the value of dataPath
+     */
+    public String getDataPath() {
         return props.getProperty("dataPath");
     }
 
-    public String getTestedFileBase(){
+    /**
+     * Gets the testedFileBase variable from the properties file
+     *
+     * @return returns the value of testedFileBase
+     */
+    public String getTestedFileBase() {
         return props.getProperty("testedFileBase");
     }
 
-    public int getMaxRecords(){
+    /**
+     * Gets the maxRecords variable from the properties file
+     *
+     * @return returns the value of maxRecords
+     */
+    public int getMaxRecords() {
         return Integer.parseInt(props.getProperty("maxRecords"));
     }
 

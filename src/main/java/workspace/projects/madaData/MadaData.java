@@ -28,8 +28,14 @@ public class MadaData {
         this.translator = translator;
     }
 
-    //DEBUG: does not follow OCP
+    /**
+     * Runs the program and extracts/transforms the data as needed
+     *
+     * @throws IOException
+     * @throws FileNotDeletedException
+     */
     public void runProgram() throws IOException, FileNotDeletedException {
+        //DEBUG: does not follow OCP
         PropertiesParser config = new PropertiesParser();
         HashSet<? extends Person> people = parser.parse(new File(config.getDataPath()));
         translator.translate(people);
