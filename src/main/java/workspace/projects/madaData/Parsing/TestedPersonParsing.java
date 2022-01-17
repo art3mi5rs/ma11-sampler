@@ -1,7 +1,7 @@
 package workspace.projects.madaData.Parsing;
 
 import org.apache.commons.csv.CSVRecord;
-import workspace.projects.madaData.People.TestedPerson;
+import workspace.projects.madaData.Entities.TestedPerson;
 
 import java.util.LinkedHashSet;
 

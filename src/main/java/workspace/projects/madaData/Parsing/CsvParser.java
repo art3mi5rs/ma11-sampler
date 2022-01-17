@@ -2,8 +2,8 @@ package workspace.projects.madaData.Parsing;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import workspace.projects.madaData.People.Person;
-import workspace.projects.madaData.People.TestedPerson;
+import workspace.projects.madaData.Entities.Entity;
+import workspace.projects.madaData.Entities.TestedPerson;
 
 import java.io.File;
 import java.io.FileReader;
@@ -14,18 +14,18 @@ import java.util.LinkedHashSet;
 public class CsvParser extends FileParser implements TestedPersonParsing {
 
     @Override
-    public LinkedHashSet<? extends Person> parse(File file) throws IOException {
+    public LinkedHashSet<? extends Entity> parse(File file) throws IOException {
         Reader in = new FileReader(file.getPath());
         Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(in);
 
-        LinkedHashSet<? extends Person> people = parseTestedPerson(records);
+        LinkedHashSet<? extends Entity> entities = parseTestedPerson(records);
 
-        return people;
+        return entities;
     }
 
     @Override
     public LinkedHashSet<TestedPerson> parseTestedPerson(Iterable<CSVRecord> records) {
-        LinkedHashSet<TestedPerson> people = new LinkedHashSet<>();
+        LinkedHashSet<TestedPerson> entities = new LinkedHashSet<>();
         boolean firstIteration = true;
 
         for (CSVRecord record : records) {
@@ -43,12 +43,12 @@ public class CsvParser extends FileParser implements TestedPersonParsing {
                 String takeDate = record.get(10);
                 String resultDate = record.get(11);
 
-                people.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber,
+                entities.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber,
                         barcode, getDate, takeDate, resultDate));
             } else {
                 firstIteration = false;
             }
         }
-        return people;
+        return entities;
     }
 }

@@ -2,7 +2,7 @@ package workspace.projects.madaData;
 
 import workspace.projects.madaData.Parsing.FileParser;
 import workspace.projects.madaData.Parsing.PropertiesParser;
-import workspace.projects.madaData.People.Person;
+import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Transforming.DataTransformer;
 import workspace.projects.madaData.Translating.DataTranslator;
 import workspace.projects.madaData.Translating.FileNotDeletedException;
@@ -36,7 +36,7 @@ public class MadaData {
      */
     public void runProgram() throws IOException, FileNotDeletedException {
         PropertiesParser config = new PropertiesParser();
-        LinkedHashSet<? extends Person> people = parser.parse(new File(config.getDataPath()));
-        translator.translate(people);
+        LinkedHashSet<? extends Entity> entities = parser.parse(new File(config.getDataPath()));
+        translator.translate(entities);
     }
 }

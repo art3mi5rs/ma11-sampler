@@ -1,6 +1,6 @@
-package workspace.projects.madaData.People;
+package workspace.projects.madaData.Entities;
 
-public class TestedPerson extends Person {
+public class TestedPerson extends Entity {
     private String mdaCode;
     private int idNum;
     private int idType;
