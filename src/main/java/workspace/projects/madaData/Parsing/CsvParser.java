@@ -20,7 +20,7 @@ public class CsvParser extends FileParser implements TestedPersonParsing, CovidT
         Reader in = new FileReader(file.getPath());
         Iterable<CSVRecord> records = CSVFormat.RFC4180.parse(in);
 
-        LinkedHashSet<? extends Entity> entities = parseTestedPerson(records);
+        LinkedHashSet<? extends Entity> entities = parseCovidTest(records);
 
         return entities;
     }
