@@ -2,8 +2,12 @@ package workspace.projects.madaData;
 
 import workspace.projects.madaData.Parsing.CsvParser;
 import workspace.projects.madaData.Parsing.PropertiesParser;
+import workspace.projects.madaData.Transforming.CovidTestTransformer;
+import workspace.projects.madaData.Transforming.DataTransformer;
+import workspace.projects.madaData.Translating.DataTranslator;
 import workspace.projects.madaData.Translating.FileNotDeletedException;
 import workspace.projects.madaData.Translating.JsonTranslator;
+import workspace.projects.madaData.Translating.XMLTranslator;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,8 +17,16 @@ public class Main {
         try {
             CsvParser parser = new CsvParser();
             PropertiesParser config = new PropertiesParser();
-            JsonTranslator translator = new JsonTranslator(config.getTestedFileBase(), config.getMaxRecords());
-            MadaData data = new TestedPersonData(parser, translator);
+
+            //Part 1
+//            DataTranslator translator = new JsonTranslator(config.getTestedFileBase(), config.getMaxRecords());
+//            DataTransformer transformer = null;
+//            MadaData data = new TestedPersonData(parser, translator);
+
+            //Part 2
+            DataTranslator translator = new XMLTranslator(config.getCovidTestFileBase(), config.getMaxRecords());
+            DataTransformer transformer = new CovidTestTransformer();
+            MadaData data = new CovidTestData(parser, transformer, translator);
 
             data.runProgram();
         } catch (FileNotDeletedException e) {
