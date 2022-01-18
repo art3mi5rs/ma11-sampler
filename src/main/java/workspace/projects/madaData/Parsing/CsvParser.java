@@ -5,7 +5,6 @@ import org.apache.commons.csv.CSVRecord;
 import workspace.projects.madaData.Entities.CovidTest;
 import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Entities.TestedPerson;
-import workspace.projects.madaData.Transforming.CovidTestTransformer;
 
 import java.io.File;
 import java.io.FileReader;
@@ -13,7 +12,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.LinkedHashSet;
 
-public class CsvParser extends FileParser implements TestedPersonParsing, CovidTestParsing{
+public class CsvParser extends FileParser implements TestedPersonParsing, CovidTestParsing {
     //TODO: Figure out how to deal with multiple data files
 
     @Override
@@ -28,7 +27,7 @@ public class CsvParser extends FileParser implements TestedPersonParsing, CovidT
 
     @Override
     public LinkedHashSet<TestedPerson> parseTestedPerson(Iterable<CSVRecord> records) {
-        LinkedHashSet<TestedPerson> entities = new LinkedHashSet<>();
+        LinkedHashSet<TestedPerson> testedPeople = new LinkedHashSet<>();
         boolean firstIteration = true;
 
         for (CSVRecord record : records) {
@@ -46,20 +45,42 @@ public class CsvParser extends FileParser implements TestedPersonParsing, CovidT
                 String takeDate = record.get(10);
                 String resultDate = record.get(11);
 
-                entities.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber,
+                testedPeople.add(new TestedPerson(mdaCode, idNum, idType, firstName, lastName, city, street, buildingNumber,
                         barcode, getDate, takeDate, resultDate));
             } else {
                 firstIteration = false;
             }
         }
-        return entities;
+        return testedPeople;
     }
 
     @Override
     public LinkedHashSet<CovidTest> parseCovidTest(Iterable<CSVRecord> records) {
-        CovidTestTransformer transformer = new CovidTestTransformer();
-        //TODO: write method contents
-        //TODO: This method calls transformer.transform() for all records
-        return null;
+        LinkedHashSet<CovidTest> covidTests = new LinkedHashSet<>();
+        boolean firstIteration = true;
+
+        for (CSVRecord record : records) {
+            if (!firstIteration) {
+                int idNum = Integer.parseInt(record.get(0));
+                int idType = Integer.parseInt(record.get(1));
+                String firstName = record.get(2);
+                String lastName = record.get(3);
+                String resultDate = record.get(4);
+                String birthDate = record.get(5);
+                String labCode = record.get(6);
+                String stickerNumber = record.get(7);
+                int resultTestCorona = Integer.parseInt(record.get(8));
+                String variant = record.get(9);
+                String testType = record.get(10);
+
+                covidTests.add(new CovidTest(idNum, idType, firstName, lastName, resultDate, birthDate, labCode,
+                        stickerNumber, resultTestCorona, variant, testType));
+
+            } else {
+                firstIteration = false;
+            }
+        }
+
+        return covidTests;
     }
 }
