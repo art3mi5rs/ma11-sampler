@@ -5,6 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import workspace.projects.madaData.Entities.CovidTest;
 import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Entities.TestedPerson;
+import workspace.projects.madaData.Transforming.CovidTestTransformer;
 
 import java.io.File;
 import java.io.FileReader;
@@ -56,7 +57,9 @@ public class CsvParser extends FileParser implements TestedPersonParsing, CovidT
 
     @Override
     public LinkedHashSet<CovidTest> parseCovidTest(Iterable<CSVRecord> records) {
+        CovidTestTransformer transformer = new CovidTestTransformer();
         //TODO: write method contents
+        //TODO: This method calls transformer.transform() for all records
         return null;
     }
 }
