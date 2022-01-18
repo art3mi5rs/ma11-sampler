@@ -2,6 +2,7 @@ package workspace.projects.madaData.Parsing;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import workspace.projects.madaData.Entities.CovidTest;
 import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Entities.TestedPerson;
 
@@ -11,7 +12,8 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.LinkedHashSet;
 
-public class CsvParser extends FileParser implements TestedPersonParsing {
+public class CsvParser extends FileParser implements TestedPersonParsing, CovidTestParsing{
+    //TODO: Figure out how to deal with multiple data files
 
     @Override
     public LinkedHashSet<? extends Entity> parse(File file) throws IOException {
@@ -50,5 +52,11 @@ public class CsvParser extends FileParser implements TestedPersonParsing {
             }
         }
         return entities;
+    }
+
+    @Override
+    public LinkedHashSet<CovidTest> parseCovidTest(Iterable<CSVRecord> records) {
+        //TODO: write method contents
+        return null;
     }
 }
