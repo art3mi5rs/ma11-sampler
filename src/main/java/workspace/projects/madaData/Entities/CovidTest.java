@@ -1,6 +1,6 @@
 package workspace.projects.madaData.Entities;
 
-public class CovidTest extends Entity{
+public class CovidTest extends Entity {
     private int idNum;
     private int idType;
     private String firstName;
@@ -18,7 +18,7 @@ public class CovidTest extends Entity{
 
 
     public CovidTest(int idNum, int idType, String firstName, String lastName, String resultDate, String birthDate,
-                     String labCode, String stickerNumber, int resultTestCorona, String variant, String testType){
+                     String labCode, String stickerNumber, int resultTestCorona, String variant, String testType) {
         this.idNum = idNum;
         this.idType = idType;
         this.firstName = firstName;
@@ -30,6 +30,25 @@ public class CovidTest extends Entity{
         this.resultTestCorona = resultTestCorona;
         this.variant = variant;
         this.testType = testType;
+    }
+
+    public CovidTest(int idNum, int idType, String firstName, String lastName, String resultDate, String birthDate,
+                     String labCode, String stickerNumber, int resultTestCorona, String variant, String testType,
+                     String joinDate, int healthCareID, String healthCareName) {
+        this.idNum = idNum;
+        this.idType = idType;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.resultDate = resultDate;
+        this.birthDate = birthDate;
+        this.labCode = labCode;
+        this.stickerNumber = stickerNumber;
+        this.resultTestCorona = resultTestCorona;
+        this.variant = variant;
+        this.testType = testType;
+        this.joinDate = joinDate;
+        this.healthCareID = healthCareID;
+        this.healthCareName = healthCareName;
     }
 
 
@@ -81,24 +100,12 @@ public class CovidTest extends Entity{
         return joinDate;
     }
 
-    public void setJoinDate(String joinDate) {
-        this.joinDate = joinDate;
-    }
-
     public int getHealthCareID() {
         return healthCareID;
     }
 
-    public void setHealthCareID(int healthCareID) {
-        this.healthCareID = healthCareID;
-    }
-
     public String getHealthCareName() {
         return healthCareName;
-    }
-
-    public void setHealthCareName(String healthCareName) {
-        this.healthCareName = healthCareName;
     }
 
 }

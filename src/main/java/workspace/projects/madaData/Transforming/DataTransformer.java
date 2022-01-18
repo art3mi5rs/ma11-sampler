@@ -1,5 +1,6 @@
 package workspace.projects.madaData.Transforming;
 
+import workspace.projects.madaData.Entities.CovidTest;
 import workspace.projects.madaData.Entities.Entity;
 
 import java.util.LinkedHashSet;
@@ -13,6 +14,6 @@ public abstract class DataTransformer {
      * @param entities An array of Entity instances
      * @return Returns a transformed array of Entity instances
      */
-    public abstract LinkedHashSet<Entity> transform(LinkedHashSet<Entity> entities);
+    public abstract LinkedHashSet<? extends Entity> transform(LinkedHashSet<Entity> entities) throws Exception;
 
 }
