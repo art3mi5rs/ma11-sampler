@@ -2,6 +2,7 @@ package workspace.projects.madaData.Translating.Managers;
 
 import workspace.projects.madaData.Translating.FileNotDeletedException;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -30,5 +31,10 @@ public abstract class FileManager {
      * @param filePath The path of the file to delete
      * @throws FileNotDeletedException
      */
-    public abstract void deleteFile(String filePath) throws FileNotDeletedException;
+    public void deleteFile(String filePath) throws FileNotDeletedException {
+        File emptyFile = new File(filePath);
+        if (!emptyFile.delete()) {
+            throw new FileNotDeletedException(emptyFile.getName());
+        }
+    }
 }
