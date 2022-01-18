@@ -1,6 +1,8 @@
 package workspace.projects.madaData.Translating;
 
 import workspace.projects.madaData.Entities.Entity;
+import workspace.projects.madaData.Translating.Managers.FileManager;
+import workspace.projects.madaData.Translating.Managers.JsonFileManager;
 
 import java.io.IOException;
 import java.util.LinkedHashSet;
@@ -21,8 +23,8 @@ public abstract class DataTranslator {
     /**
      * Moves the data from the LinkedHashSet to File(s)
      *
-     * @param people The LinkedHashSet of Entity instances
+     * @param entities The LinkedHashSet of Entity instances
      */
-    public abstract void translate(LinkedHashSet<? extends Entity> people) throws IOException, FileNotDeletedException;
+    public abstract void translate(LinkedHashSet<? extends Entity> entities) throws IOException, FileNotDeletedException;
 
 }

@@ -1,6 +1,5 @@
 package workspace.projects.madaData.Translating;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Translating.Managers.JsonFileManager;
 
@@ -8,17 +7,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedHashSet;
 
-public class JsonTranslator extends DataTranslator {
+public class XMLTranslator extends DataTranslator{
     String type;
 
-    public JsonTranslator(String fileBase, int maxRecords) {
-        super(fileBase, new JsonFileManager(), maxRecords);
-        type = ".json";
+    public XMLTranslator(String fileBase, JsonFileManager manager, int maxRecords) {
+        super(fileBase, manager, maxRecords);
+        type = ".xml";
     }
 
     @Override
     public void translate(LinkedHashSet<? extends Entity> entities) throws IOException, FileNotDeletedException {
-        ObjectMapper objectMapper = new ObjectMapper();
         int recordCount = 0;
         int fileCount = 0;
         FileWriter writer = manager.openFile(fileBase + fileCount + type);
@@ -29,7 +27,9 @@ public class JsonTranslator extends DataTranslator {
                 fileCount++;
                 writer = manager.openFile(fileBase + fileCount + type);
             }
-            writer.append(objectMapper.writeValueAsString(entity));
+
+            //add entity to file
+
             writer.append(", \n");
             recordCount++;
         }
@@ -39,6 +39,6 @@ public class JsonTranslator extends DataTranslator {
         } else {
             manager.deleteFile(fileBase + fileCount + type);
         }
-    }
 
+    }
 }
