@@ -53,6 +53,11 @@ public class CovidTest extends Entity {
 
 
     public int getIdNum() {
+        if(idNum / 10000000 == 0){
+            String stringID = idNum + "00";
+            return Integer.parseInt(stringID);
+        }
+
         return idNum;
     }
 

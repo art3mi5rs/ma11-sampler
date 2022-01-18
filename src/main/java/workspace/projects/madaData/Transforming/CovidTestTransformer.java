@@ -13,6 +13,7 @@ public class CovidTestTransformer extends DataTransformer {
     @Override
     public LinkedHashSet<? extends Entity> transform(LinkedHashSet<? extends Entity> entities) throws InvalidIdException {
         LinkedHashSet<CovidTest> covidTests = new LinkedHashSet<>();
+        int i = 0;
 
         for (Entity test : entities) {
             CovidTest covidTest = (CovidTest) test;
@@ -37,6 +38,7 @@ public class CovidTestTransformer extends DataTransformer {
             covidTests.add(new CovidTest(idNum, idType, firstName, lastName, resultDate, birthDate, labCode,
                     stickerNumber, resultTestCorona, variant, testType, joinDate, healthCareID, healthCareName));
 
+            i++;
         }
 
         return covidTests;
