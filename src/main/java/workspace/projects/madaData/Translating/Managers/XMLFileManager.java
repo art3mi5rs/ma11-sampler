@@ -3,7 +3,7 @@ package workspace.projects.madaData.Translating.Managers;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class XMLFileManager extends FileManager{
+public class XMLFileManager extends FileManager {
 
     @Override
     public FileWriter openFile(String filePath) throws IOException {

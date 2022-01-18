@@ -9,6 +9,7 @@ public interface TestedPersonParsing {
 
     /**
      * Parses the data from the file to a LinkedHashSet of TestedPerson instances
+     *
      * @param records The records from the file
      * @return Returns a LinkedHashSet of TestedPerson instances built from the records
      */

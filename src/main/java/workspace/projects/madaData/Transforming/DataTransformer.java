@@ -1,6 +1,5 @@
 package workspace.projects.madaData.Transforming;
 
-import workspace.projects.madaData.Entities.CovidTest;
 import workspace.projects.madaData.Entities.Entity;
 
 import java.util.LinkedHashSet;

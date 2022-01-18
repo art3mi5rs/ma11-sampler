@@ -21,5 +21,5 @@ public abstract class MadaData {
      * @throws IOException
      * @throws FileNotDeletedException
      */
-    public abstract void runProgram() throws IOException, FileNotDeletedException ;
+    public abstract void runProgram() throws IOException, FileNotDeletedException;
 }

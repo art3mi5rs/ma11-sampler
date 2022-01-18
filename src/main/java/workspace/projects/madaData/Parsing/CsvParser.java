@@ -13,7 +13,6 @@ import java.io.Reader;
 import java.util.LinkedHashSet;
 
 public class CsvParser extends FileParser implements TestedPersonParsing, CovidTestParsing {
-    //TODO: Figure out how to deal with multiple data files
 
     @Override
     public LinkedHashSet<? extends Entity> parse(File file) throws IOException {

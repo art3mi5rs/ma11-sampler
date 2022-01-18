@@ -1,7 +1,6 @@
 package workspace.projects.madaData.Translating;
 
 import workspace.projects.madaData.Entities.Entity;
-import workspace.projects.madaData.Translating.Managers.JsonFileManager;
 import workspace.projects.madaData.Translating.Managers.XMLFileManager;
 
 import javax.xml.bind.JAXBContext;
@@ -12,7 +11,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.util.LinkedHashSet;
 
-public class XMLTranslator extends DataTranslator{
+public class XMLTranslator extends DataTranslator {
     String type;
 
     public XMLTranslator(String fileBase, int maxRecords) {

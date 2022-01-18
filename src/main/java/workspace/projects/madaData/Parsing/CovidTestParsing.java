@@ -9,6 +9,7 @@ public interface CovidTestParsing {
 
     /**
      * Parses the data from the file to a LinkedHashSet of CovidTest instances
+     *
      * @param records The records from the file
      * @return Returns a LinkedHashSet of CovidTest instances built from the records
      */
