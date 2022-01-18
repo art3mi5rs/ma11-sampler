@@ -12,6 +12,10 @@ public class CovidTest extends Entity{
     private int resultTestCorona;
     private String variant;
     private String testType;
+    private String joinDate;
+    private int healthCareID;
+    private String healthCareName;
+
 
     public CovidTest(int idNum, int idType, String firstName, String lastName, String resultDate, String birthDate,
                      String labCode, String stickerNumber, int resultTestCorona, String variant, String testType){
@@ -28,7 +32,7 @@ public class CovidTest extends Entity{
         this.testType = testType;
     }
 
-    
+
     public int getIdNum() {
         return idNum;
     }
@@ -71,6 +75,30 @@ public class CovidTest extends Entity{
 
     public String getTestType() {
         return testType;
+    }
+
+    public String getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    public int getHealthCareID() {
+        return healthCareID;
+    }
+
+    public void setHealthCareID(int healthCareID) {
+        this.healthCareID = healthCareID;
+    }
+
+    public String getHealthCareName() {
+        return healthCareName;
+    }
+
+    public void setHealthCareName(String healthCareName) {
+        this.healthCareName = healthCareName;
     }
 
 }
