@@ -2,7 +2,6 @@ package workspace.projects.madaData.Translating;
 
 import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Translating.Managers.FileManager;
-import workspace.projects.madaData.Translating.Managers.JsonFileManager;
 
 import java.io.IOException;
 import java.util.LinkedHashSet;

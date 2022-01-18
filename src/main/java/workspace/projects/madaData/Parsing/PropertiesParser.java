@@ -38,6 +38,15 @@ public class PropertiesParser {
     }
 
     /**
+     * Gets the covidTestFileBase variable from the properties file
+     *
+     * @return returns the value of covidTestFileBase
+     */
+    public String getCovidTestFileBase() {
+        return props.getProperty("covidTestFileBase");
+    }
+
+    /**
      * Gets the maxRecords variable from the properties file
      *
      * @return returns the value of maxRecords

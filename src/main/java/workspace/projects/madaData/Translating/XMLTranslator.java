@@ -3,8 +3,12 @@ package workspace.projects.madaData.Translating;
 import workspace.projects.madaData.Entities.Entity;
 import workspace.projects.madaData.Translating.Managers.JsonFileManager;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.StringWriter;
 import java.util.LinkedHashSet;
 
 public class XMLTranslator extends DataTranslator{
@@ -28,9 +32,18 @@ public class XMLTranslator extends DataTranslator{
                 writer = manager.openFile(fileBase + fileCount + type);
             }
 
-            //add entity to file
+            try {
+                JAXBContext context = JAXBContext.newInstance(Entity.class);
+                Marshaller marshaller = context.createMarshaller();
+                marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+                StringWriter stringWriter = new StringWriter();
+                marshaller.marshal(entity, stringWriter);
+                writer.append(stringWriter.toString());
+            } catch (JAXBException e) {
+                e.printStackTrace();
+            }
 
-            writer.append(", \n");
+            writer.append("\n");
             recordCount++;
         }
 
