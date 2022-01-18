@@ -19,7 +19,7 @@ public class TestedPersonData extends MadaData {
     @Override
     public void runProgram() throws IOException, FileNotDeletedException {
         PropertiesParser config = new PropertiesParser();
-        LinkedHashSet<? extends Entity> entities = parser.parse(new File(config.getDataPath()));
+        LinkedHashSet<? extends Entity> entities = parser.parse(new File(config.getTestedDataPath()));
         translator.translate(entities);
     }
 }

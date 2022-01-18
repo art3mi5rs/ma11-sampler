@@ -11,7 +11,7 @@ import java.util.LinkedHashSet;
 public class CovidTestTransformer extends DataTransformer {
 
     @Override
-    public LinkedHashSet<? extends Entity> transform(LinkedHashSet<Entity> entities) throws InvalidIdException {
+    public LinkedHashSet<? extends Entity> transform(LinkedHashSet<? extends Entity> entities) throws InvalidIdException {
         LinkedHashSet<CovidTest> covidTests = new LinkedHashSet<>();
 
         for (Entity test : entities) {

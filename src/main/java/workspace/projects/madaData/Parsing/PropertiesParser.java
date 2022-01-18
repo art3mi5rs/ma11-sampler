@@ -20,12 +20,21 @@ public class PropertiesParser {
     }
 
     /**
-     * Gets the dataPath variable from the properties file
+     * Gets the testedDataPath variable from the properties file
      *
-     * @return returns the value of dataPath
+     * @return returns the value of testedDataPath
      */
-    public String getDataPath() {
-        return props.getProperty("dataPath");
+    public String getTestedDataPath() {
+        return props.getProperty("testedDataPath");
+    }
+
+    /**
+     * Gets the covidTestDataPath variable from the properties file
+     *
+     * @return returns the value of covidTestDataPath
+     */
+    public String getCovidTestDataPath() {
+        return props.getProperty("covidTestDataPath");
     }
 
     /**
